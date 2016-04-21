@@ -1,9 +1,12 @@
 fileFormatVersion: 2
 guid: 8a4bb0ee51529f749b60c48c79ee4174
-timeCreated: 1458920434
+timeCreated: 1461166443
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: audience_0
+    21300002: audience_1
+    21300004: audience_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -32,24 +35,69 @@ TextureImporter:
     filterMode: 0
     aniso: 16
     mipBias: -1
-    wrapMode: 0
-  nPOTScale: 1
+    wrapMode: 1
+  nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
-  alphaIsTransparency: 0
-  textureType: 0
+  alphaIsTransparency: 1
+  textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: audience_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 80
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 64}
+        - {x: -40, y: -64}
+        - {x: 40, y: -64}
+        - {x: 40, y: 64}
+    - name: audience_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 80
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 64}
+        - {x: -40, y: -64}
+        - {x: 40, y: -64}
+        - {x: 40, y: 64}
+    - name: audience_2
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 80
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 64}
+        - {x: -40, y: -64}
+        - {x: 40, y: -64}
+        - {x: 40, y: 64}
     outline: []
   spritePackingTag: 
   userData: 

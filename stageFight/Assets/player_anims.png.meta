@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 2bbcbad187d500443b60e245a2eb2152
-timeCreated: 1458747269
+timeCreated: 1461246939
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -20,6 +20,10 @@ TextureImporter:
     21300026: player_anims_13
     21300028: player_anims_14
     21300030: player_anims_15
+    21300032: player_anims_16
+    21300034: player_anims_17
+    21300036: player_anims_18
+    21300038: player_anims_19
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -113,8 +117,8 @@ TextureImporter:
     - name: player_anims_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
+        x: 64
+        y: 72
         width: 16
         height: 24
       alignment: 0
@@ -124,7 +128,7 @@ TextureImporter:
     - name: player_anims_5
       rect:
         serializedVersion: 2
-        x: 16
+        x: 0
         y: 48
         width: 16
         height: 24
@@ -135,7 +139,7 @@ TextureImporter:
     - name: player_anims_6
       rect:
         serializedVersion: 2
-        x: 32
+        x: 16
         y: 48
         width: 16
         height: 24
@@ -146,7 +150,7 @@ TextureImporter:
     - name: player_anims_7
       rect:
         serializedVersion: 2
-        x: 48
+        x: 32
         y: 48
         width: 16
         height: 24
@@ -157,8 +161,8 @@ TextureImporter:
     - name: player_anims_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 24
+        x: 48
+        y: 48
         width: 16
         height: 24
       alignment: 0
@@ -168,8 +172,8 @@ TextureImporter:
     - name: player_anims_9
       rect:
         serializedVersion: 2
-        x: 16
-        y: 24
+        x: 64
+        y: 48
         width: 16
         height: 24
       alignment: 0
@@ -179,7 +183,7 @@ TextureImporter:
     - name: player_anims_10
       rect:
         serializedVersion: 2
-        x: 32
+        x: 0
         y: 24
         width: 16
         height: 24
@@ -190,7 +194,7 @@ TextureImporter:
     - name: player_anims_11
       rect:
         serializedVersion: 2
-        x: 48
+        x: 16
         y: 24
         width: 16
         height: 24
@@ -201,6 +205,39 @@ TextureImporter:
     - name: player_anims_12
       rect:
         serializedVersion: 2
+        x: 32
+        y: 24
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: player_anims_13
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 24
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: player_anims_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 24
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: player_anims_15
+      rect:
+        serializedVersion: 2
         x: 0
         y: 0
         width: 16
@@ -209,7 +246,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: player_anims_13
+    - name: player_anims_16
       rect:
         serializedVersion: 2
         x: 16
@@ -220,7 +257,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: player_anims_14
+    - name: player_anims_17
       rect:
         serializedVersion: 2
         x: 32
@@ -231,10 +268,21 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: player_anims_15
+    - name: player_anims_18
       rect:
         serializedVersion: 2
         x: 48
+        y: 0
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: player_anims_19
+      rect:
+        serializedVersion: 2
+        x: 64
         y: 0
         width: 16
         height: 24
