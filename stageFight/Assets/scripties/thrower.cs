@@ -23,7 +23,8 @@ public class thrower : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		beginSpawning ();
+		// Make sure that objects aren't being thrown yet.
+		//spawning = false;
 	}
 	
 	// Update is called once per frame
@@ -31,24 +32,22 @@ public class thrower : MonoBehaviour {
 	
 	}
 
-	private void Spawn()
+	private IEnumerator Spawn()
 	{
-		if(!spawning)
-		{
-			return;
+		while (true) {
+			// Select random item and spawn it relative to parent
+			int itemIndex = Random.Range (0, items.Length);
+			GameObject newObject = (GameObject)Instantiate (items [itemIndex], transform.localPosition + getRandomPosition (), Quaternion.identity);
+			newObject.transform.parent = transform;
+
+			setVelocity (newObject);
+
+			// Setting velocity
+			//newObject.GetComponent<Rigidbody> ().velocity = transform.localPosition - newObject.transform.position;
+
+			Destroy (newObject, destroyTime);
+			yield return new WaitForSeconds (spawnTime);
 		}
-
-		// Select random item and spawn it relative to parent
-		int itemIndex = Random.Range (0, items.Length);
-		GameObject newObject = (GameObject)Instantiate (items [itemIndex], transform.localPosition + getRandomPosition(), Quaternion.identity);
-		newObject.transform.parent = transform;
-
-		setVelocity (newObject);
-
-		// Setting velocity
-		//newObject.GetComponent<Rigidbody> ().velocity = transform.localPosition - newObject.transform.position;
-
-		Destroy (newObject, destroyTime);
 	}
 
 	private void setVelocity (GameObject thrownObject)
@@ -109,9 +108,7 @@ public class thrower : MonoBehaviour {
 			float angleRad = Mathf.Deg2Rad * angleDeg;
 			dir.y = dist * Mathf.Tan(angleRad);
 			dist += height / Mathf.Tan(angleRad);
-
-			print (dist + " " + Physics.gravity.magnitude + " " + angleRad);
-
+		
 			float velocity = Mathf.Sqrt(Mathf.Abs(dist) * Physics.gravity.magnitude / Mathf.Sin(2 * angleRad));
 
 			return velocity * dir.normalized;
@@ -151,13 +148,15 @@ public class thrower : MonoBehaviour {
 
 	public void beginSpawning ()
 	{
-		InvokeRepeating ("Spawn", spawnTime, spawnTime);
-		spawning = true;
+		//InvokeRepeating ("Spawn", spawnTime, spawnTime);
+		StartCoroutine ("Spawn");
+		//spawning = true;
 	}
 
 	public void stopSpawning()
 	{
-		CancelInvoke ();
-		spawning = false;
+		//CancelInvoke ();
+		StopCoroutine ("Spawn");
+		//spawning = false;
 	}
 }

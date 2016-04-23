@@ -50,27 +50,41 @@ public class player_manager : MonoBehaviour
             Application.Quit();
         }
             
+		//xbox controller shit
+		inputZ = Input.GetAxis("Horizontal_1")*-1;
+		inputX = Input.GetAxis("Vertical_1")*-1;
+		
+		
         if (Input.GetKey(KeyCode.W)) {
             inputX = 1f;
-			animator.SetInteger("dir", 0);
-			animator.SetInteger("mov", 1);
         }
         if (Input.GetKey(KeyCode.A)) {
             inputZ = 1f;
-			animator.SetInteger("dir", 1);
-			animator.SetInteger("mov", 1);
         }
         if (Input.GetKey(KeyCode.S)) {
-            inputX = -1f;
-			animator.SetInteger("dir", 2);
-			animator.SetInteger("mov", 1);
+            inputX = -1f;		
         }
         if (Input.GetKey(KeyCode.D)) {
             inputZ = -1f;
-			animator.SetInteger("dir", 3);
-			animator.SetInteger("mov", 1);
         }
-		if (Input.GetKey (KeyCode.Space)) {
+		
+		if (inputZ !=0 || inputX != 0) {
+			animator.SetInteger("mov", 1);
+		}
+		if (inputX > 0) {
+			animator.SetInteger("dir", 0);
+		}
+		if (inputX < 0) {
+			animator.SetInteger("dir", 2);
+		}
+		if (inputZ > 0) {
+			animator.SetInteger("dir", 1);
+		}
+		if (inputZ < 0) {
+			animator.SetInteger("dir", 3);
+		}
+		
+		if (Input.GetKey (KeyCode.LeftShift) || Input.GetAxis("Jump_1") > 0) {
 			if (Mathf.Floor(books) > 0) {
 				inputX = 0;
 				inputZ = 0;
@@ -100,8 +114,6 @@ public class player_manager : MonoBehaviour
 		} else {
 			book_progress = 0f;
 		}
-            
-		// 4 - Movement per direction
 		movement = new Vector3(
 			inputX,
 			0f,
@@ -115,7 +127,6 @@ public class player_manager : MonoBehaviour
 	
 	void FixedUpdate()
 	{
-		
 		transform.position += movement;
 		transform.rotation = Quaternion.Euler(0,90,0);
 	}
