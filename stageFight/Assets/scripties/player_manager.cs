@@ -85,6 +85,7 @@ public class player_manager : MonoBehaviour
 		}
 		
 		if (Input.GetKey (KeyCode.LeftShift) || Input.GetAxis("Jump_1") > 0) {
+			animator.SetInteger("mov",0);
 			if (Mathf.Floor(books) > 0) {
 				inputX = 0;
 				inputZ = 0;

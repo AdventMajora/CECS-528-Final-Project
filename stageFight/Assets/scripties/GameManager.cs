@@ -125,4 +125,13 @@ public class GameManager : MonoBehaviour {
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
 		return;
 	}
+
+	public bool isGamePlaying() {
+		return gamePlaying;
+	}
+
+	public void goToMainMenu() {
+		print ("HAI");
+		SceneManager.LoadScene ("opening");
+	}
 }

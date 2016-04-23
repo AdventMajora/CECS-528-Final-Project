@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\scripties\GameManager.cs" />
      <Compile Include="Assets\scripties\StartGame.cs" />
+     <Compile Include="Assets\scripties\TriggerDetector.cs" />
      <Compile Include="Assets\scripties\blue_manager.cs" />
      <Compile Include="Assets\scripties\player_manager.cs" />
      <Compile Include="Assets\scripties\rotate.cs" />

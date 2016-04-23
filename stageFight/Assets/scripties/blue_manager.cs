@@ -81,6 +81,7 @@ public class blue_manager : MonoBehaviour
 			animator.SetInteger("dir", 3);
 		}
         if (Input.GetKey (KeyCode.RightShift) || Input.GetAxis("Jump_2") > 0) {
+			animator.SetInteger("mov",0);
 			if (Mathf.Floor(books) > 0) {
 				inputX = 0;
 				inputZ = 0;
