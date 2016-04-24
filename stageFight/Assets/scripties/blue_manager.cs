@@ -18,103 +18,106 @@ public class blue_manager : MonoBehaviour
 	
 	private Animator animator;
 	private Rigidbody rigid;
+	private GameManager manager;
+	
 	public Slider avail_books;
  
     void Start()
     {
 		animator = this.GetComponent<Animator>();
 		rigid = this.GetComponent<Rigidbody>();
+		manager = GameObject.Find("Camera").GetComponent<GameManager>();
     }
 	
 	void Update()
 	{
-		avail_books.value = books;
-		animator.SetInteger("mov", 0);
-		animator.SetInteger("atk", 0);
-        inputX = 0f;
-		inputZ = 0f;
-		
-		if (books == 0f) {
-			book_recharge = true;
-		}
-		books += 0.01f;
-		if (books >= book_max) {
-			books = book_max;
-			book_recharge = false;
-		}
-        
-        if (Input.GetKey(KeyCode.Escape)) {
-            Debug.Log("Detected key code");
-            Application.Quit();
-        }
-        
-		//xbox controller shit
-		inputZ = Input.GetAxis("Horizontal_2")*-1;
-		inputX = Input.GetAxis("Vertical_2")*-1;
-		
-        if (Input.GetKey(KeyCode.UpArrow)) {
-            inputX = 1f;
-        }
-        if (Input.GetKey(KeyCode.LeftArrow)) {
-            inputZ = 1f;
-        }
-        if (Input.GetKey(KeyCode.DownArrow)) {
-            inputX = -1f;		
-        }
-        if (Input.GetKey(KeyCode.RightArrow)) {
-            inputZ = -1f;
-        }
-		
-		if (inputZ !=0 || inputX != 0) {
-			animator.SetInteger("mov", 1);
-		}
-		if (inputX > 0) {
-			animator.SetInteger("dir", 0);
-		}
-		if (inputX < 0) {
-			animator.SetInteger("dir", 2);
-		}
-		if (inputZ > 0) {
-			animator.SetInteger("dir", 1);
-		}
-		if (inputZ < 0) {
-			animator.SetInteger("dir", 3);
-		}
-        if (Input.GetKey (KeyCode.RightShift) || Input.GetAxis("Jump_2") > 0) {
-			animator.SetInteger("mov",0);
-			if (Mathf.Floor(books) > 0) {
-				inputX = 0;
-				inputZ = 0;
-				animator.SetInteger ("atk", 1);
+		if (manager.isGamePlaying()) {
+			avail_books.value = books;
+			animator.SetInteger("mov", 0);
+			animator.SetInteger("atk", 0);
+			inputX = 0f;
+			inputZ = 0f;
+			
+			if (books == 0f) {
+				book_recharge = true;
+			}
+			books += 0.01f;
+			if (books >= book_max) {
+				books = book_max;
+				book_recharge = false;
+			}
+			
+			//xbox controller shit
+			inputZ = Input.GetAxis("Horizontal_2")*-1;
+			inputX = Input.GetAxis("Vertical_2")*-1;
+			
+			if (Input.GetKey(KeyCode.UpArrow)) {
+				inputX = 1f;
+			}
+			if (Input.GetKey(KeyCode.LeftArrow)) {
+				inputZ = 1f;
+			}
+			if (Input.GetKey(KeyCode.DownArrow)) {
+				inputX = -1f;		
+			}
+			if (Input.GetKey(KeyCode.RightArrow)) {
+				inputZ = -1f;
+			}
+			
+			if (inputZ !=0 || inputX != 0) {
+				animator.SetInteger("mov", 1);
+			}
+			if (inputX > 0) {
+				animator.SetInteger("dir", 0);
+			}
+			if (inputX < 0) {
+				animator.SetInteger("dir", 2);
+			}
+			if (inputZ > 0) {
+				animator.SetInteger("dir", 1);
+			}
+			if (inputZ < 0) {
+				animator.SetInteger("dir", 3);
+			}
+			if (Input.GetKey (KeyCode.RightShift) || Input.GetAxis("Jump_2") > 0) {
+				animator.SetInteger("mov",0);
+				if (Mathf.Floor(books) > 0) {
+					inputX = 0;
+					inputZ = 0;
+					animator.SetInteger ("atk", 1);
 
-				if (book_progress == 0f && !book_recharge) {
-					book_progress++;
-					books--;
-					if (books < 0) {
-						books = 0;
-					}
+					if (book_progress == 0f && !book_recharge) {
+						book_progress++;
+						books--;
+						if (books < 0) {
+							books = 0;
+						}
 
-					GameObject book_obj = (GameObject) Instantiate(
-							book_prefab, 
-							new Vector3(transform.position.x, 8, (transform.position.z+24)), 
-							Random.rotation
-					);	//Casting error here
-					Vector3 rVelocity = new Vector3(0, 120+(Random.value*100), 150+(Random.value*100));
-					book_obj.GetComponent<Rigidbody>().velocity = rVelocity;	//set the velocity 
-				} else {
-					book_progress += 1f;
-					if (book_progress >= book_speed) {
-						book_progress = 0f;
+						GameObject book_obj = (GameObject) Instantiate(
+								book_prefab, 
+								new Vector3(transform.position.x, 8, (transform.position.z+24)), 
+								Random.rotation
+						);	//Casting error here
+						AudioSource audio = GetComponent<AudioSource>();
+						audio.Play();
+						Vector3 rVelocity = new Vector3(0, 120+(Random.value*100), 150+(Random.value*100));
+						book_obj.GetComponent<Rigidbody>().velocity = rVelocity;	//set the velocity 
+					} else {
+						book_progress += 1f;
+						if (book_progress >= book_speed) {
+							book_progress = 0f;
+						}
 					}
 				}
-			}
-		} else {
-			book_progress = 0f;
-		}  
-		movement = new Vector3(
-			inputX,
-			0f,
-            inputZ);
+			} else {
+				book_progress = 0f;
+			}  
+			movement = new Vector3(
+				inputX,
+				0f,
+				inputZ);
+		}
+		
 		
 	}
     
