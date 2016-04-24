@@ -52,6 +52,7 @@
      <Compile Include="Assets\scripties\crash.cs" />
      <Compile Include="Assets\scripties\player_manager.cs" />
      <Compile Include="Assets\scripties\rotate.cs" />
+     <Compile Include="Assets\scripties\scale.cs" />
      <Compile Include="Assets\scripties\thrower.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
